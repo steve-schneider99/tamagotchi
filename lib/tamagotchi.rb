@@ -27,13 +27,23 @@ class Tamagotchi
     @food
   end
 
-  define_method(:time_passes) do
-    @sleep = @sleep-1
-    @fun = @fun-1
-    @food = @food-1
+  define_method(:time_passes) do |hour|
+    @sleep = @sleep-hour
+    @fun = @fun-hour
+    @food = @food-hour
   end
 
+  define_method(:is_alive) do
+    @food > 0
+  end
 
-  
+  define_method(:set_food_level) do |level|
+    @food = level
+  end
+
+  define_method(:refill_food) do
+    @food = 10
+  end
+
 
 end
